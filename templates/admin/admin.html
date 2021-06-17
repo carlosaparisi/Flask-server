@@ -1,1 +1,143 @@
+{% extends "public/templates/public_templates.html" %}
 
+{% block title %}Profile{% endblock %}
+
+{% block main %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Index</title>
+  <style>
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Dispositius Connectats</h1>
+      <hr>
+
+      <div class="card">
+        <div class="card-body">
+          {% for item in values %}
+          <h5 class="card-title">{{ item.name }}</h5>
+          <hr>
+
+          <p style="color: blue">{{ item.ip }}</p>
+          <p class="text-muted">Última connexió: {{ item.connection }}</p>
+
+
+          <dl class="row">
+
+              <dt class="col-sm-3">Camera</dt>
+              <dd class="col-sm-9">{{ item.camera }}</dd>
+
+              <dt class="col-sm-3">SSID</dt>
+              <dd class="col-sm-9">{{ item.camera_SSID }}</dd>
+
+              <dt class="col-sm-3">Número de èrie</dt>
+              <dd class="col-sm-9">
+                  <p>{{ item.serial_number }}</p>
+              </dd>
+
+              <dt class="col-sm-3">Bateria restant</dt>
+              <dd class="col-sm-9">
+                <p>{{ item.battery_left }}</p>
+              </dd>
+
+              <dt class="col-sm-3">Espai restant</dt>
+              <dd class="col-sm-9">{{ item.rem_space }}</dd>
+
+              <dt class="col-sm-3">Clients connectats</dt>
+              <dd class="col-sm-9">{{ item.clients_connected }}</dd>
+
+              <dt class="col-sm-3">Espai per fotografies</dt>
+              <dd class="col-sm-9">{{ item.pictures_left }} </dd>
+
+            </dl>
+
+
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="/" method="POST" enctype="multipart/form-data">
+  <br> <br>
+      <h2>Galeria d'imatges</h2>
+      <hr>
+      <h6>Clica aquí per descarregar les imatges del servidor <button type="submit"  class="btn btn-primary">Descarrega</button> </h6>
+      <p></p>
+    </div>
+  </div>
+</div>
+
+  {% for namefiles in namefiles %}
+  <div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="name">
+        <img src="{{ url_for('static', filename='img/' + namefiles) }}"  alt="pic" width="600" height="400">
+      </a>
+      <div class="desc">{{namefiles}}</div>
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}
+
+</form>
