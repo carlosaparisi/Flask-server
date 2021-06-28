@@ -33,7 +33,7 @@ grid minor
 %xlim([0 160])
 title('Angle Roll vs angle Roll desitjat');
 legend('Roll','DesRoll');
-ylabel('Angle roll [º]');
+ylabel('Angle roll [Âº]');
 xlabel('temps [s]');
 
 % Pitch/roll error 
@@ -52,7 +52,7 @@ grid on
 grid minor 
 title('Angle pitch vs angle pitch desitjat');
 legend('Pitch','DesPitch');
-ylabel('Angle pitch [º]');
+ylabel('Angle pitch [Âº]');
 xlabel('temps [s]');
 
 % Yaw
@@ -62,7 +62,7 @@ grid on
 grid minor 
 title('Angle Yaw vs angle Yaw desitjat');
 legend('Yaw','DesYaw');
-ylabel('Angle Yaw [º]');
+ylabel('Angle Yaw [Âº]');
 xlabel('temps [s]');
 
 %%altura
@@ -79,10 +79,10 @@ ylabel('Altura [m]');
 xlabel('temps [s]');
 
 figure(6)
-plot(t,CTUN(:,8),'b',t,CTUN(:,6),'r'); grid; % Altura real segons baròmetre (blau), altura dessitjada (vermell)
+plot(t,CTUN(:,8),'b',t,CTUN(:,6),'r'); grid; % Altura real segons barÃ²metre (blau), altura dessitjada (vermell)
 grid on
 grid minor 
-title('Altura real segons el baròmetre vs altura desitjada');
+title('Altura real segons el barÃ²metre vs altura desitjada');
 legend('BAlt','DAlt');
 ylabel('Altura [m]');
 xlabel('temps [s]');
@@ -93,7 +93,7 @@ figure(9)
 plot(t,NTUN(:,5),'b',t,NTUN(:,3),'r'); grid; % Pos x real vs Pos x dessitjat
 grid on
 grid minor 
-title('Posició en X');
+title('PosiciÃ³ en X');
 legend('PosX','DPosX');
 ylabel('Pos X [m]');
 xlabel('temps [s]');
@@ -101,7 +101,7 @@ figure(10)
 plot(t,NTUN(:,6),'b',t,NTUN(:,4),'r'); grid;  % Pos y real vs Pos y dessitjat
 grid on
 grid minor 
-title('Posició en Y');
+title('PosiciÃ³ en Y');
 legend('PosY','DPosY');
 ylabel('Pos Y [m]');
 xlabel('temps [s]');
@@ -114,7 +114,7 @@ t = [0:(GPS(end,3)-GPS(1,3))*10^-3/(length(GPS(:,1))-1):(GPS(end,3)-GPS(1,3))*10
 plot(t,GPS(:,6),'b',t,GPS(:,5),'r');
 grid on
 grid minor 
-title('GPS Hdop i número de satèl·lits captats');
+title('GPS Hdop i nÃºmero de satÃ¨lÂ·lits captats');
 legend('Hdop','NumSat');
 xlabel('temps [s]');
 
@@ -128,9 +128,9 @@ signal_dBm4 = (RAD(:,7) / 1.9) - 127;
 plot(t,signal_dBm1,'b',t,signal_dBm2,'r',t,signal_dBm3,'g',t,signal_dBm4,'y');
 grid on
 grid minor 
-title('Qualitat del radioenllaç');
+title('Qualitat del radioenllaÃ§');
 legend('RSSI','RemRSSI','Noise','RemNoise');
 xlabel('temps [s]');
-ylabel('Potència [dBm]');
+ylabel('PotÃ¨ncia [dBm]');
 
 
